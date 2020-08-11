@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="CopyFilters.Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CopyFilters"
+             mc:Ignorable="d" 
+             FontFamily="Microsoft Tai Le" 
+             FontSize="12" Height="400" Width="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" 
+                   Style="{StaticResource Header}">
+            Choose the filters to be copied and the views to apply the chosen filters to
+        </TextBlock>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="6*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" 
+                       Grid.Column="0" 
+                       Style="{StaticResource CommonText}"
+                       Margin="20 0 0 0">
+            Filters:
+            </TextBlock>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="1" 
+                       Style="{StaticResource CommonText}"
+                       Margin="20 0 0 0">
+            Views:
+            </TextBlock>
+
+            <ListBox Name="Filters"
+                     Grid.Column="0"
+                     Grid.Row="1"
+                     HorizontalAlignment="Stretch"
+                     SelectionMode="Multiple"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     Margin="10 0 10 0"
+                     ItemsSource="{Binding Filters}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox VerticalAlignment="Center" 
+                              IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}},Path=IsSelected}">
+                            <CheckBox.Content>
+                                <TextBlock Text="{Binding Name}" Margin="5 1 0 0" VerticalAlignment="Center">
+                                </TextBlock>
+                            </CheckBox.Content>
+                        </CheckBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox Name="Views"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     HorizontalAlignment="Stretch"
+                     SelectionMode="Multiple"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     Margin="10 0 10 0"
+                     ItemsSource="{Binding Views}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox VerticalAlignment="Center" 
+                              IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}},Path=IsSelected}">
+                            <CheckBox.Content>
+                                <TextBlock Text="{Binding Name}" Margin="5 1 0 0" VerticalAlignment="Center">
+                                </TextBlock>
+                            </CheckBox.Content>
+                        </CheckBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Name="okButton" 
+                    Grid.Column="0" 
+                    Command="{Binding OKCommand}" 
+                    IsDefault="True">
+                OK
+            </Button>
+
+            <Button Name="cancelButton"
+                    Grid.Column="1" 
+                    Command="{Binding CancelCommand}" 
+                    IsCancel="True">
+                Cancel
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>
