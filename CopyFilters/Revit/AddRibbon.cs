@@ -36,7 +36,7 @@ namespace CopyFilters
 			buttonDataCopyFilters.LargeImage = bitmap32;
 
 			PushButton pushButtonCopyFilters = rp.AddItem(buttonDataCopyFilters) as PushButton;
-			pushButtonCopyFilters.ToolTip = "Copy filters and their settings from the active view to other views.";
+			pushButtonCopyFilters.ToolTip = "Copy filters and their settings from the active view to the other views.";
 
 			ContextualHelp help = new ContextualHelp(ContextualHelpType.Url, "https://apps.autodesk.com/en/Publisher/PublisherHomepage?ID=T64TQNF5ELQ5");
 			pushButtonCopyFilters.SetContextualHelp(help);

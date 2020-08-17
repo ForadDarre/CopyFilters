@@ -10,7 +10,7 @@ using Autodesk.Revit.UI;
 
 #region Info
 /*
-    Description: Copy filters and their settings from the active view to other views.
+    Description: Copy filters and their settings from the active view to the other views.
 
     Developer: Aleksandr Mozhaev
 */
@@ -36,7 +36,7 @@ namespace CopyFilters
 			{
 				if (doc.IsFamilyDocument || doc.IsReadOnly)
 				{
-					TaskDialog.Show("Error!", "The document has an incorrect format or is opened in readonly mode.");
+					TaskDialog.Show("Error!", "The document has an incorrect format or is opened in the readonly mode.");
 				}
 
 				else
