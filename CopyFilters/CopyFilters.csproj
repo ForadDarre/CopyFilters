@@ -97,7 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CopyFilters.addin" />
-    <None Include="Privacy Policy.md" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="logo.png" />
