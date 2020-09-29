@@ -101,5 +101,8 @@
   <ItemGroup>
     <EmbeddedResource Include="logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Privacy Policy.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
