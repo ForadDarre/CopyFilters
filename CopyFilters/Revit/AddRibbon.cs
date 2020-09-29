@@ -38,7 +38,7 @@ namespace CopyFilters
 			PushButton pushButtonCopyFilters = rp.AddItem(buttonDataCopyFilters) as PushButton;
 			pushButtonCopyFilters.ToolTip = "Copy filters and their settings from the active view to the other views.";
 
-			ContextualHelp help = new ContextualHelp(ContextualHelpType.Url, "https://apps.autodesk.com/en/Publisher/PublisherHomepage?ID=T64TQNF5ELQ5");
+			ContextualHelp help = new ContextualHelp(ContextualHelpType.Url, "https://apps.autodesk.com/RVT/en/Detail/HelpDoc?appId=1108473145188632668&appLang=en&os=Win64&mode=preview");
 			pushButtonCopyFilters.SetContextualHelp(help);
 		}
 
